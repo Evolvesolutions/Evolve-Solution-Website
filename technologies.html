@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore the proven and emerging technologies Evolve Solutions uses to help businesses grow and transform."
+    />
+    <title>Our Technologies | Evolve Solutions</title>
+    <style>
+      /* Shared theme tokens */
+      :root {
+        color-scheme: dark;
+        --color-navy: #07163a;
+        --color-blue: #0c2a5e;
+        --color-cyan: #2fd4ff;
+        --color-text: #eaf6ff;
+        --color-muted: #a9bfd8;
+        --color-card: rgba(12, 40, 82, 0.72);
+        --color-amber: #f5a623;
+        --content-width: 1180px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        background: var(--color-navy);
+      }
+
+      body {
+        position: relative;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          radial-gradient(ellipse at 50% 37%, rgba(25, 106, 177, 0.2), transparent 52%),
+          linear-gradient(135deg, var(--color-navy), var(--color-blue));
+        color: var(--color-text);
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .background-waves {
+        position: absolute;
+        z-index: 0;
+        top: 225px;
+        left: 0;
+        width: 100%;
+        height: 560px;
+        color: var(--color-cyan);
+        opacity: 0.09;
+        pointer-events: none;
+      }
+
+      .page-shell {
+        position: relative;
+        z-index: 1;
+        width: min(calc(100% - 48px), var(--content-width));
+        margin-inline: auto;
+        padding-block: 48px 72px;
+      }
+
+      /* Company statistics */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        max-width: 850px;
+        margin: 0 auto 96px;
+        text-align: center;
+      }
+
+      .stat {
+        padding: 12px;
+      }
+
+      .stat-number {
+        display: block;
+        color: #f3f9ff;
+        font-size: clamp(2.25rem, 5vw, 3.35rem);
+        font-weight: 300;
+        letter-spacing: -0.055em;
+        line-height: 1;
+      }
+
+      .stat-bar {
+        display: block;
+        width: 34px;
+        height: 4px;
+        margin: 14px auto 11px;
+        border-radius: 999px;
+        background: var(--color-cyan);
+        box-shadow: 0 0 14px rgba(47, 212, 255, 0.65);
+      }
+
+      .stat-label {
+        color: var(--color-muted);
+        font-size: 0.88rem;
+        letter-spacing: 0.025em;
+      }
+
+      .section-heading {
+        max-width: 760px;
+        margin: 0 auto 48px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--color-cyan);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        color: #fff;
+        font-size: clamp(2.6rem, 6vw, 4.25rem);
+        font-weight: 800;
+        letter-spacing: -0.055em;
+        line-height: 1.08;
+      }
+
+      h1 span {
+        color: var(--color-cyan);
+        text-shadow:
+          0 0 12px rgba(47, 212, 255, 0.56),
+          0 0 34px rgba(47, 212, 255, 0.28);
+      }
+
+      .section-intro {
+        max-width: 700px;
+        margin: 20px auto 0;
+        color: #c2d3e8;
+        font-size: clamp(1rem, 2vw, 1.1rem);
+        line-height: 1.75;
+      }
+
+      /* Technology cards */
+      .technology-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .technology-card {
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid rgba(47, 212, 255, 0.25);
+        border-radius: 18px;
+        background: var(--color-card);
+        box-shadow: 0 16px 40px rgba(0, 8, 28, 0.2);
+        backdrop-filter: blur(12px);
+        transition:
+          transform 220ms ease,
+          border-color 220ms ease,
+          box-shadow 220ms ease;
+      }
+
+      .technology-card:hover,
+      .technology-card:focus-visible {
+        transform: translateY(-5px);
+        border-color: var(--color-cyan);
+        box-shadow:
+          0 20px 46px rgba(0, 8, 28, 0.3),
+          0 0 22px rgba(47, 212, 255, 0.12);
+      }
+
+      .technology-card:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: 4px;
+      }
+
+      .card-art {
+        display: grid;
+        min-height: 170px;
+        place-items: center;
+        border-bottom: 1px solid rgba(47, 212, 255, 0.18);
+        background:
+          radial-gradient(circle at 50% 45%, rgba(47, 212, 255, 0.23), transparent 34%),
+          linear-gradient(135deg, rgba(14, 77, 133, 0.76), rgba(7, 22, 58, 0.92));
+      }
+
+      .card-art svg {
+        width: 64px;
+        height: 64px;
+        overflow: visible;
+        fill: none;
+        stroke: var(--color-cyan);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+        filter: drop-shadow(0 0 11px rgba(47, 212, 255, 0.68));
+      }
+
+      .card-body {
+        padding: 22px 23px 24px;
+      }
+
+      .card-body h2 {
+        margin: 0;
+        color: #f4f9ff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .card-body p {
+        min-height: 48px;
+        margin: 10px 0 18px;
+        color: var(--color-muted);
+        font-size: 0.92rem;
+        line-height: 1.65;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 27px;
+        padding: 4px 10px;
+        border: 1px solid rgba(47, 212, 255, 0.25);
+        border-radius: 999px;
+        background: rgba(47, 212, 255, 0.08);
+        color: #bdefff;
+        font-size: 0.75rem;
+        line-height: 1.2;
+      }
+
+      .technology-card--ai .tag {
+        border-color: rgba(245, 166, 35, 0.45);
+        background: rgba(245, 166, 35, 0.12);
+        color: #ffd58c;
+      }
+
+      .page-footer {
+        margin-top: 54px;
+        color: rgba(194, 211, 232, 0.65);
+        font-size: 0.82rem;
+        text-align: center;
+      }
+
+      /* Tablet and mobile layouts */
+      @media (max-width: 850px) {
+        .page-shell {
+          width: min(calc(100% - 40px), 720px);
+          padding-top: 36px;
+        }
+
+        .stats {
+          margin-bottom: 76px;
+        }
+
+        .technology-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 18px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .technology-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-shell {
+          width: min(calc(100% - 32px), 440px);
+          padding-block: 28px 48px;
+        }
+
+        .stats {
+          gap: 4px;
+          margin-bottom: 62px;
+        }
+
+        .stat {
+          padding: 8px 2px;
+        }
+
+        .stat-number {
+          font-size: clamp(1.75rem, 9vw, 2.35rem);
+        }
+
+        .stat-bar {
+          width: 26px;
+          margin-block: 11px 8px;
+        }
+
+        .stat-label {
+          font-size: 0.7rem;
+          line-height: 1.4;
+        }
+
+        .section-heading {
+          margin-bottom: 34px;
+        }
+
+        .section-intro {
+          margin-top: 15px;
+          font-size: 0.97rem;
+        }
+
+        .technology-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .card-art {
+          min-height: 150px;
+        }
+
+        .card-body {
+          padding: 20px;
+        }
+
+        .card-body p {
+          min-height: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+
+        .technology-card:hover,
+        .technology-card:focus-visible {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="background-waves" viewBox="0 0 1440 560" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-40 180C180 80 320 300 540 200S900 80 1100 190s280 110 400 0" fill="none" stroke="currentColor" stroke-width="1.2" />
+      <path d="M-40 240C180 140 320 360 540 260s360-120 560-10 280 110 400 0" fill="none" stroke="currentColor" stroke-width="1.2" />
+      <path d="M-40 300C180 200 320 420 540 320s360-120 560-10 280 110 400 0" fill="none" stroke="currentColor" stroke-width="1.2" />
+    </svg>
+
+    <main class="page-shell">
+      <section class="stats" aria-label="Evolve Solutions at a glance">
+        <div class="stat">
+          <strong class="stat-number">50+</strong>
+          <span class="stat-bar" aria-hidden="true"></span>
+          <span class="stat-label">Projects delivered</span>
+        </div>
+        <div class="stat">
+          <strong class="stat-number">20+</strong>
+          <span class="stat-bar" aria-hidden="true"></span>
+          <span class="stat-label">Technologies</span>
+        </div>
+        <div class="stat">
+          <strong class="stat-number">10+</strong>
+          <span class="stat-bar" aria-hidden="true"></span>
+          <span class="stat-label">Countries served</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="technologies-heading">
+        <header class="section-heading">
+          <p class="eyebrow">Evolve Solutions</p>
+          <h1 id="technologies-heading">Our <span>Technologies</span></h1>
+          <p class="section-intro">
+            We use proven and emerging technologies, including AI, to help your business grow, transform and stay ahead in a digital world.
+          </p>
+        </header>
+
+        <div class="technology-grid">
+          <article class="technology-card technology-card--ai" tabindex="0">
+            <div class="card-art" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M22 17a10 10 0 0 0-7 17 10 10 0 0 0 7 17h20a10 10 0 0 0 7-17 10 10 0 0 0-7-17H22Z" />
+                <path d="M24 26v16m8-16v16m8-16v16M20 32h24M27 20l5 6 5-6m-10 21 5-6 5 6" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2>Artificial Intelligence</h2>
+              <p>Build intelligent systems that learn from data and help solve complex business challenges.</p>
+              <div class="tags" aria-label="Artificial Intelligence technologies">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Deep Learning</span>
+                <span class="tag">NLP</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="technology-card technology-card--ai" tabindex="0">
+            <div class="card-art" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M32 10v8m0 28v8M10 32h8m28 0h8M16.5 16.5l5.7 5.7m19.6 19.6 5.7 5.7m0-31-5.7 5.7m-19.6 19.6-5.7 5.7" />
+                <circle cx="32" cy="32" r="14" />
+                <path d="M26 28h.01M38 28h.01M26 37c3.5 3 8.5 3 12 0" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2>Generative AI</h2>
+              <p>Turn generative models into useful experiences, smarter assistants, and automated workflows.</p>
+              <div class="tags" aria-label="Generative AI technologies">
+                <span class="tag">LLMs</span>
+                <span class="tag">Chatbots</span>
+                <span class="tag">Automation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="technology-card" tabindex="0">
+            <div class="card-art" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M12 48h40M16 43V29m11 14V18m11 25V25m11 18V12" />
+                <path d="m13 24 13-9 12 7 14-12" />
+                <circle cx="16" cy="29" r="2" />
+                <circle cx="27" cy="18" r="2" />
+                <circle cx="38" cy="25" r="2" />
+                <circle cx="49" cy="12" r="2" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2>Data &amp; Analytics</h2>
+              <p>Reveal patterns, measure performance, and make confident decisions with your data.</p>
+              <div class="tags" aria-label="Data and analytics technologies">
+                <span class="tag">Big Data</span>
+                <span class="tag">BI</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="technology-card" tabindex="0">
+            <div class="card-art" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M20 43h-3a9 9 0 0 1-1-18 16 16 0 0 1 30-3 11 11 0 0 1 2 21h-4" />
+                <path d="M32 30v23m-9-9 9 9 9-9" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2>Cloud Technologies</h2>
+              <p>Build resilient, scalable infrastructure and streamline delivery across cloud platforms.</p>
+              <div class="tags" aria-label="Cloud technologies">
+                <span class="tag">AWS</span>
+                <span class="tag">Azure</span>
+                <span class="tag">DevOps</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="technology-card" tabindex="0">
+            <div class="card-art" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <rect x="10" y="13" width="44" height="38" rx="4" />
+                <path d="M10 23h44M18 18h.01M23 18h.01M20 32l-6 5 6 5m9-10 6 5-6 5m12 0 5-10" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2>Full Stack Development</h2>
+              <p>Create complete, maintainable digital products from robust services to responsive interfaces.</p>
+              <div class="tags" aria-label="Full stack development technologies">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="technology-card" tabindex="0">
+            <div class="card-art" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M32 9 49 16v13c0 12-7 20-17 26-10-6-17-14-17-26V16l17-7Z" />
+                <path d="m24 32 5 5 11-12" />
+                <path d="M12 15h4m32 0h4M12 47h4m32 0h4" />
+              </svg>
+            </div>
+            <div class="card-body">
+              <h2>Cybersecurity</h2>
+              <p>Protect systems and data with practical security controls, visibility, and risk management.</p>
+              <div class="tags" aria-label="Cybersecurity technologies">
+                <span class="tag">Monitoring</span>
+                <span class="tag">Encryption</span>
+                <span class="tag">Compliance</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p>&copy; Evolve Solutions</p>
+      </footer>
+    </main>
+  </body>
+</html>

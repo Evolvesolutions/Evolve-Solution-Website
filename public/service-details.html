@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07163a" />
+    <title>Service Details | Evolve Solutions</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="detail-page">
+    <div class="detail-network" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <main class="detail-shell" data-service-details>
+      <a class="back-link" href="/services">← Back to Services</a>
+
+      <section class="not-found" data-not-found hidden aria-live="polite">
+        <p class="detail-label">EVOLVE SOLUTIONS</p>
+        <h1>Service not found</h1>
+        <p>That service could not be found. Return to our Services page to explore the available technologies.</p>
+        <a class="button button-primary" href="/services">Back to Services</a>
+      </section>
+
+      <div class="detail-content" data-detail-content hidden>
+        <header class="detail-hero" data-hero>
+          <div class="detail-hero-copy"></div>
+          <div class="detail-hero-art" data-hero-art aria-hidden="true"></div>
+        </header>
+
+        <section class="detail-section" aria-labelledby="offer-heading">
+          <p class="detail-label">CAPABILITIES</p>
+          <h2 id="offer-heading">What we offer</h2>
+          <div class="detail-offers" data-offers></div>
+        </section>
+
+        <section class="detail-section detail-benefits" aria-labelledby="benefits-heading">
+          <div>
+            <p class="detail-label">OUTCOMES</p>
+            <h2 id="benefits-heading">Key benefits</h2>
+          </div>
+          <ul class="benefit-list" data-benefits></ul>
+        </section>
+
+        <section class="detail-section" aria-labelledby="approach-heading">
+          <p class="detail-label">OUR APPROACH</p>
+          <h2 id="approach-heading">How we work</h2>
+          <div class="detail-steps" data-steps></div>
+        </section>
+
+        <section class="detail-section detail-tools" aria-labelledby="tools-heading">
+          <div>
+            <p class="detail-label">BUILT WITH THE RIGHT STACK</p>
+            <h2 id="tools-heading">Tools &amp; technologies</h2>
+          </div>
+          <div class="tool-list" data-tools></div>
+        </section>
+
+        <nav class="detail-actions" aria-label="Service actions">
+          <a class="button button-primary" href="/contact">Get a Free Consultation</a>
+          <a class="button button-secondary" href="/services">Back to Services</a>
+        </nav>
+      </div>
+    </main>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
